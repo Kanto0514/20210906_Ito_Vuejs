@@ -54,25 +54,25 @@ export default {
   },
   methods: {
     async getContact() {
-      const resData = await axios.get("base64:PjB+WR98TlcDh9MMC2hWs8c92vIvPsdXjJzG9g3WgOg=");
+      const resData = await axios.get("https://floating-headland-45720.herokuapp.com/api/contact");
       this.contactLists = resData.data.data;
     },
     async insertContact() {
       const sendData = {
         todo: this.newTodo
       };
-      await axios.post("base64:PjB+WR98TlcDh9MMC2hWs8c92vIvPsdXjJzG9g3WgOg=", sendData);
+      await axios.post("https://floating-headland-45720.herokuapp.com/api/contact", sendData);
       await this.getContact();
     },
     async updateContact(id, todo) {
       const sendData = {
         todo: todo
       };
-      await axios.put("base64:PjB+WR98TlcDh9MMC2hWs8c92vIvPsdXjJzG9g3WgOg=" + id, sendData);
+      await axios.put("https://floating-headland-45720.herokuapp.com/api/contact" + id, sendData);
       await this.getContact();
     },
     async deleteContact(id) {
-      await axios.delete("base64:PjB+WR98TlcDh9MMC2hWs8c92vIvPsdXjJzG9g3WgOg=" + id);
+      await axios.delete("https://floating-headland-45720.herokuapp.com/api/contact" + id);
       await this.getContact();
     },
   },
